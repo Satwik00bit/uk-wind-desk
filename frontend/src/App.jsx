@@ -26,7 +26,7 @@ import {
   RefreshCw,
 } from 'lucide-react';
 
-const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:8000';
+const API_BASE = import.meta.env.VITE_API_URL || "";
 
 export default function App() {
   const [startDate, setStartDate] = useState('2026-01-01');

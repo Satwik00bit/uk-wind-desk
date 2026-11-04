@@ -1,4 +1,5 @@
-import os
+import sys, os
+sys.path.append(os.path.dirname(os.path.abspath(__file__)))
 import json
 from datetime import datetime, timedelta, timezone
 from typing import Optional
@@ -21,7 +22,7 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-CACHE_DIR = os.path.join(os.path.dirname(__file__), "data_cache")
+CACHE_DIR = "/tmp/data_cache" if os.environ.get("VERCEL") else os.path.join(os.path.dirname(__file__), "data_cache")
 os.makedirs(CACHE_DIR, exist_ok=True)
 
 FUELHH_CACHE = os.path.join(CACHE_DIR, "fuelhh_wind_jan2026.json")
